@@ -1,0 +1,42 @@
+---
+import Header from '../components/Header.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+const { title } = Astro.props
+
+import "../styles/global.sass"
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <BaseHead title="{title}"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="body--border left"></div>
+		<div class="body--border top"></div>
+		<!-- <div class="body--border right"></div> -->
+		<div class="body--border bottom"></div>
+        <Header/>
+		<main id="swup" class="transition-fade">
+			<slot />
+			<div class="cursor cursor--small"></div>
+		</main>
+
+        <script
+        src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/swup/2.0.8/swup.js" integrity="sha512-bfrtHeTFgz4n+0GBoJ85OYVCqgiICHsfrtGaVT242MVjyAc7fTSmwqgHCqUJPJaW/+hrz3wMIXZ+J02GVmr+nA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
+        <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script> 
+		<script src="../scripts/local.js"></script>
+		<script src="../scripts/arctext.js"></script>
+	</body>
+</html>

@@ -1,15 +1,23 @@
 ---
+import SiteLayout from '../layouts/siteLayout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout title="Page d'accueil">
+	<div class="hero--face">
+		<img src="public/images/Profil_picture_yoan_linkedin-31.png" alt="photo de profil linkedin">
+	</div>
+	<section class="home">
+		<div class="home--content">
+			<p>👋 Hey! I'm <span class="colored">Yoan</span></p>
+			<p>Young and invovled, I’m always driving my work in a way that I think is the most efficient and appropriate depending on contexts and ressources that surrounds me, and this does make me enjoy my daily-life at its <span class="colored">fullest</span>. ⌨️ <br>If you are looking for a developer, distinguished by his work and academic background, that would meets your technical and human expectactions, why not giving a look at my profile?</p>
+			<div class="white-space-lg"></div>
+			<p><span class="colored">Feel free to check me out<br> through the links down bellow. 🧐</span></p>
+			<div class="white-space-sm"></div>
+			<div class="home--touch d-flex flex-row">
+				<a href="https://github.com/YoanRouleau" target="_blank">Github</a>
+				<a href="https://www.linkedin.com/in/yoan-rouleau-8ba694150/" target="_blank">LinkedIn</a>
+				<a href="img/resume.pdf" target="_blank">Resume</a>
+			</div>
+		</div>
+	</section>
+</SiteLayout>
