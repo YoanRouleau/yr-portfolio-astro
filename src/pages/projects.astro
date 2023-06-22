@@ -1,0 +1,78 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro'
+---
+
+<SiteLayout title="Experiences">
+    <h1 class="page--title">Some <span class="colored">Projects</span> I worked on.</h1>
+    <div class="white-space-lg"></div>
+    <section class="projects">
+        <div class="projects--cards-container">
+            <div class="projects--row row">
+                <div class="projects--card-image col-6" style="background-image: url('/assets/images/pathpartout.jpg');"></div>
+                <div class="projects--card-content col-6 d-flex align-items-center">
+                    <div class="projects--card-data flex-column">
+                        <h2>PathPartout 🌄</h2>
+                        <h3>Flutter-built <span class="colored">mobile</span> application</h3>
+                        <div class="white-space-sm"></div>
+                        <p>PathPartout is a mobile application designed to make Annecy's citizens want to hike arround the city, giving them appropriated paths depending on a given level and criterias. <br>I've been working mostly on the <span class="colored">back-end side</span> of the app, by building the <span class="colored">API</span> and the database used to manage all the data gathered through the app.</p>
+                        <p>Learn more about this project using the links down bellow.</p>
+                        <div class="projects--card-cta-container">
+                            <a href="https://xd.adobe.com/view/53d1434f-0710-473b-8a33-b50dc72f972b-0682/grid" target="_blank">Interactive Wireframes</a>
+                            <a href="https://github.com/Vapie/PathPartout_App" target="_blank">Github repository</a>
+                        </div>
+                        <div class="white-space-sm"></div>
+                        <div class="projects--card-tags d-flex flex-row flex-wrap">
+                            <p>Flutter</p>
+                            <p>NodeJS</p>
+                            <p>Express</p>
+                            <p>MongoDB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects--row row">
+                <div class="projects--card-content col-6 d-flex align-items-center">
+                    <div class="projects--card-data flex-column">
+                        <h2>Gang Band - Banger maker 🎼</h2>
+                        <h3>A Symfony-based <span class="colored">music creation</span> platform</h3>
+                        <div class="white-space-sm"></div>
+                        <p>Gang band is a tool that allows you to create your own music with a deliberately wobbly tool. Its goal is to challenge its visitors to recreate known sounds and melodies. It is also a platform for exchange (like a blog) which allows to discuss the good reproduction of the music created on the site.<br> My job was to work on setting the <span class="colored">style</span> up.</p>
+                        <p>Start composing your own bangers using the link down bellow!</p>
+                        <div class="projects--card-cta-container">
+                            <a href="http://banger-maker.herokuapp.com/" target="_blank">The project</a>
+                            <a href="https://github.com/YoanRouleau/banger-maker-symfony" target="_blank">Github repository</a>
+                        </div>
+                        <div class="white-space-sm"></div>
+                        <div class="projects--card-tags d-flex flex-row flex-wrap">
+                            <p>PHP</p>
+                            <p>Symfony</p>
+                            <p>Javascript</p>
+                            <p>HTML/CSS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects--card-image col-6" style="background-image: url('/assets/images/banger.PNG');"></div>
+            </div>
+            <div class="projects--row row">
+                <div class="projects--card-image col-6" style="background-image: url('/assets/images/tvshow.PNG');"></div>
+                <div class="projects--card-content col-6 d-flex align-items-center">
+                    <div class="projects--card-data flex-column">
+                        <h2>TVShowPlanner 📺</h2>
+                        <h3>A mobile <span class="colored">IMDB</span> application</h3>
+                        <div class="white-space-sm"></div>
+                        <p>TVSP is a mobile application that allows you to consult information about the television programmes broadcast on a specified channel. It also provides access to movie-related data through the IMDB API.<br>It has been a <span class="colored">solo</span> project I developed to complete my University degree in Ireland.</p>
+                        <div class="projects--card-cta-container">
+                            <a href="https://github.com/YoanRouleau/TV-Show-Planner" target="_blank">Github repository</a>
+                        </div>
+                        <div class="white-space-sm"></div>
+                        <div class="projects--card-tags d-flex flex-row flex-wrap">
+                            <p>C#</p>
+                            <p>UWP</p>
+                            <p>API</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</SiteLayout>

@@ -1,36 +1,24 @@
-console.log(document.referrer)
+init();
 
-function init(){
-    $('.menu').on('click',function(){
-        $('.hero--bar-right-menu').toggleClass("open")
-    })
+const swup = new Swup({
+    containers: ["#swup"],
+    cache: false,
+    animationSelector: '[class*="transition-"]',
+    linkSelector: 'a[href^="' + window.location.origin + '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
+});
 
-    $('.menu, a, .experiences--block-learnmore').on('mouseover',function() {
-        $('.cursor').addClass('is-active')
-    });
-    $('.menu, a, .experiences--block-learnmore').on('mouseleave',function() {
-        $('.cursor').removeClass('is-active')
-    });
 
-    $('.home--touch a, .menu.opened, .hero--bar-logo, .experiences--block-learnmore').on('mouseover',function() {
-        $('.cursor').addClass('is-active-white')
-    });
-    $('.home--touch a, .menu.opened, .hero--bar-logo,  .experiences--block-learnmore').on('mouseleave',function() {
-        $('.cursor').removeClass('is-active-white')
-    });
-        
-    
-    function cursor() {
-        const cursor = $('.cursor')[0];
-        document.addEventListener('mousemove', e => {
-        cursor.setAttribute('style', 'top:' + (e.clientY) + 'px;' + 'left:' + (e.clientX) + 'px;')
-        });
-    }
+swup.on('contentReplaced', () => {
+    init();
+});
 
-    cursor();
+gsap.registerPlugin(ScrollTrigger);
 
-    gsap.registerPlugin(ScrollTrigger);
+gsap.set(".hero--bar-logo", {
+    opacity: 1
+})
 
+if(!$('body').hasClass('loaded')){
     gsap.set(".home--content", {
         y: 30,
         opacity: 0       
@@ -39,36 +27,53 @@ function init(){
     gsap.set(".hero--face", {
         opacity: 0
     })
+}
 
-    gsap.set(".hero--bar-logo", {
-        opacity: 1
+if($('.home').length && !$('body').hasClass('loaded')){
+    var tl = gsap.timeline();
+    tl.from(".hero--bar-logo", 1.5,{
+        opacity: 0,
+        ease: Linear.easeNone,
+        delay: 1,
+        onComplete: function(){
+            $('.hero--bar-logo').removeClass('loading');
+            gsap.to(".home--content", {
+                y: 0,
+                opacity: 1,
+                duration: 1.5 ,
+                delay: 1
+            });
+            gsap.to(".hero--face", {
+                opacity: 1,
+                duration: 1.5,
+                delay: 1.2
+            })   
+            $('body').addClass('loaded');
+        }
     })
+}
 
-    if($('.home').length){
-        var tl = gsap.timeline();
-        tl.from(".hero--bar-logo", 1.5,{
-            opacity: 0,
-            ease: Linear.easeNone,
-            delay: 1,
-            onComplete: function(){
-                $('.hero--bar-logo').removeClass('big');
-                gsap.to(".home--content", {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.5 ,
-                    delay: 1
-                });
-                gsap.to(".hero--face", {
-                    opacity: 1,
-                    duration: 1.5,
-                    delay: 1.2
-                })   
-                        
-            }
-        })
-    }
+$('.menu').on('click',function(){
+    $('.hero--bar-right-menu').toggleClass("open")
+})
 
-    
+$('.menu, a, .experiences--block-learnmore').on('mouseover',function() {
+    $('.cursor').addClass('is-active')
+});
+$('.menu, a, .experiences--block-learnmore').on('mouseleave',function() {
+    $('.cursor').removeClass('is-active')
+});
+
+$('.home--touch a, .menu.opened, .hero--bar-logo, .experiences--block-learnmore').on('mouseover',function() {
+    $('.cursor').addClass('is-active-white')
+});
+$('.home--touch a, .menu.opened, .hero--bar-logo,  .experiences--block-learnmore').on('mouseleave',function() {
+    $('.cursor').removeClass('is-active-white')
+});
+
+function init(){
+
+    cursor();
 
     // let blocks = $('.timeline--block')
     gsap.utils.toArray('.timeline--block').forEach(function(block){
@@ -210,17 +215,9 @@ function init(){
     });
 }
 
-init();
-
-const swup = new Swup({
-    containers: ["#swup"],
-    cache: false,
-    animationSelector: '[class*="transition-"]',
-    linkSelector: 'a[href^="' + window.location.origin + '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup]), a[href^="#"]:not([data-no-swup])',
-});
-
-
-swup.on('contentReplaced', () => {
-    init();
-});
-
+function cursor() {
+    const cursor = $('.cursor')[0];
+    document.addEventListener('mousemove', e => {
+    cursor.setAttribute('style', 'top:' + (e.clientY) + 'px;' + 'left:' + (e.clientX) + 'px;')
+    });
+}
