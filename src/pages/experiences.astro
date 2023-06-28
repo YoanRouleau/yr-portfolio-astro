@@ -1,104 +1,22 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro'
+
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get("cdn/stories/experiences", {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const content = data.story.content;
 ---
 
 <SiteLayout title="Experiences">
     <section class="experiences">
         <h1 class="page--title">Work <span class="colored">Experiences</span></h1>
         <div class="white-space-lg"></div>
-        <div class="experiences--block d-flex align-items-center">
-            <div class="experiences--block-image" style="background-image: url(/assets/images/tiw.jpg)"></div>
-            <div class="experiences--block-learnmore d-flex flex-column justify-content-center">
-                <span class="open">🔍</span>
-                <span class="shut d-none">❌</span>
-            </div>
-            <div class="experiences--block-content">
-                <p>This is Why Agency - <span class="colored">Growth Marketing Agency</span></p>
-                <h2>Growth Marketer & Web developer</h2>
-                <h3>SEA & SMM management, Web project lead</h3>
-                <p>🗺️ - Bourg-Saint-Maurice, France</p>
-            </div>
-            <div class="experiences--block-description">
-                <div class="data">
-                    <p>Type of contract: <span class="colored">Sandwich course</span></p>
-                    <div class="white-space-sm"></div>
-                    <h2>Missions 📋</h2>
-                    <p><span class="colored">Develop and maintain</span> web projets for French Alpes’s businesses such as Ski resorts, hotels, restaurants and more within a small digital and <span class="colored">bilingual team</span>.</p>
-                    <div class="white-space-lg"></div>
-                    <p class="business-size">Business size: 12 Workers 🚶🏻‍♀️🚶🏻</p>
-                </div>
-            </div>
-        </div>
-        <div class="white-space-sm"></div>
-        <div class="experiences--block d-flex align-items-center">
-            <div class="experiences--block-image" style="background-image: url(/assets/images/merci2.jpg)"></div>
-            <div class="experiences--block-learnmore d-flex flex-column justify-content-center">
-                <span class="open">🔍</span>
-                <span class="shut d-none">❌</span>
-            </div>
-            <div class="experiences--block-content">
-                <p>Merci Creative - <span class="colored">B2B Branding agency</span></p>
-                <h2>Fullstack Web developer</h2>
-                <h3>Project and technical support lead</h3>
-                <p>🗺️ - Bourg-Saint-Maurice, France</p>
-            </div>
-            <div class="experiences--block-description">
-                <div class="data">
-                    <p>Type of contract: <span class="colored">Sandwich course</span></p>
-                    <div class="white-space-sm"></div>
-                    <h2>Missions 📋</h2>
-                    <p><span class="colored">Develop and maintain</span> web projets for French Alpes’s businesses such as Ski resorts, hotels, restaurants and more within a small digital and <span class="colored">bilingual team</span>.</p>
-                    <div class="white-space-lg"></div>
-                    <p class="business-size">Business size: 12 Workers 🚶🏻‍♀️🚶🏻</p>
-                </div>
-            </div>
-        </div>
-        <div class="white-space-sm"></div>
-        <div class="experiences--block d-flex align-items-center">
-            <div class="experiences--block-image" style="background-image: url(/assets/images/ifp.jpg)"></div>
-            <div class="experiences--block-learnmore d-flex flex-column justify-content-center">
-                <span class="open">🔍</span>
-                <span class="shut d-none">❌</span>
-            </div>
-            <div class="experiences--block-content">
-                <p>French Institue of Pondicherry - <span class="colored">Research institute</span></p>
-                <h2>Trainee Web developer</h2>
-                <p>🗺️ - Pondicherry, India</p>
-            </div>
-            <div class="experiences--block-description">
-                <div class="data">
-                    <p>Type of contract: <span class="colored">Internship</span></p>
-                    <div class="white-space-sm"></div>
-                    <h2>Missions 📋</h2>
-                    <p>Imagine and develop a <span class="colored">new website</span> for the institute that highlights and gather projects data and scientific publications of the 4 reserch departments, using Wordpress.</p>
-                    <div class="white-space-lg"></div>
-                    <p class="business-size">Business size: 80+ Workers 🚶🏻‍♀️🚶🏻</p>
-                </div>
-            </div>
-        </div>
-        <div class="white-space-sm"></div>
-        <div class="experiences--block d-flex align-items-center">
-            <div class="experiences--block-image" style="background-image: url(/assets/images/lactalis.jpg)"></div>
-            <div class="experiences--block-learnmore d-flex flex-column justify-content-center">
-                <span class="open">🔍</span>
-                <span class="shut d-none">❌</span>
-            </div>
-            <div class="experiences--block-content">
-                <p>Lactalis Logistique - <span class="colored">Production line</span></p>
-                <h2>Order picker</h2>
-                <p>🗺️ - Saint-Vulbas, France</p>
-            </div>
-            <div class="experiences--block-description">
-                <div class="data">
-                    <p>Type of contract: <span class="colored">Interim</span></p>
-                    <div class="white-space-sm"></div>
-                    <h2>Missions 📋</h2>
-                    <p>Picking up and preparing orders in refrigerated hangars for the different europeens resellers.</p>
-                    <div class="white-space-lg"></div>
-                    <p class="business-size">Business size: 1000+ Workers 🚶🏻‍♀️🚶🏻</p>
-                </div>
-            </div>
-        </div>
-        <div class="white-space-lg"></div>
+        <StoryblokComponent blok={content} />
     </section>
 </SiteLayout>
