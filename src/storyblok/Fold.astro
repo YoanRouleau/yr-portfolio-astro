@@ -1,0 +1,18 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+
+const { blok } = Astro.props
+const content = renderRichText(blok.content)
+
+---
+
+<div class="experiences--block d-flex align-items-center" {...storyblokEditable(blok)}>
+    <div class="experiences--block-image" style={{ "background-image": "url('"+ blok.Image.filename +"')" }}></div>
+    <div class="experiences--block-content">
+        <p>{blok.Business} - <span class="colored">{blok.Service}</span></p>
+        <h2>{blok.Title}</h2>
+        <h3>{blok.Subtitle}</h3>
+        <p>🗺️ - {blok.Location}</p>
+    </div>
+</div>
+<div class="white-space-sm"></div>
