@@ -213,6 +213,32 @@ function init(){
     $('.bendtext.fourth').arctext({
         radius: 50
     });
+
+
+    $('#contact-form').on('submit', function(e){
+        e.preventDefault();
+        console.log($(this).serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {}))
+        fetch("https://submit-form.com/mIfPMcP0", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify($(this).serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {})),
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+    })
 }
 
 function cursor() {
