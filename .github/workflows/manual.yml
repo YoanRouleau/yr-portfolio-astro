@@ -20,12 +20,9 @@ jobs:
     steps:
       - name: NPM - Clear cache
         shell: pwsh
-        run: npm cache clean --force
-      - name: NPM - Install
-        run: npm install
-      - name: NPM - Install Storyblok CLI
-        run: npm install storyblok -g
-      - name: Pull Storyblok components
-        run: storyblok pull-components --space 23811
-      - name: Sync Preprod to Prod
-        run: storyblok sync --type folders,components,stories --source 238118 --target 240970
+        run: |
+          npm cache clean --force
+          npm install
+          npm install storyblok -g
+          storyblok pull-components --space 23811
+          storyblok sync --type folders,components,stories --source 238118 --target 240970
