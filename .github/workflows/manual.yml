@@ -18,9 +18,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: bahmutov/npm-install@v1.6.0
-    # Runs a single command using the runners shell
-    - name: Pull Storyblok components
-      run: storyblok pull-components --space 23811
-    - name: Sync Preprod to Prod
-      run: storyblok sync --type folders,components,stories --source 238118 --target 240970
+      - name: NPM install with caching
+        uses: bahmutov/npm-install@v1.6.0
+        with: 
+          working-directory: "."
+      - name: Pull Storyblok components
+        run: storyblok pull-components --space 23811
+      - name: Sync Preprod to Prod
+        run: storyblok sync --type folders,components,stories --source 238118 --target 240970
