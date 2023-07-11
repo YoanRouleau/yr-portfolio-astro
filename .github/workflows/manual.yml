@@ -21,7 +21,7 @@ jobs:
       - name: NPM install with caching
         uses: bahmutov/npm-install@v1.6.0
         with: 
-          working-directory: "."
+          working-directory: "../"
       - name: Pull Storyblok components
         run: storyblok pull-components --space 23811
       - name: Sync Preprod to Prod
