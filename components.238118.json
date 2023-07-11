@@ -1,0 +1,76 @@
+{
+  "components": [
+    {
+      "name": "Fold",
+      "display_name": "Fold",
+      "created_at": "2023-06-28T12:35:56.150Z",
+      "updated_at": "2023-06-28T15:34:08.510Z",
+      "id": 4190799,
+      "schema": {
+        "Title": {
+          "type": "text",
+          "pos": 0,
+          "key": "Title"
+        },
+        "Business": {
+          "type": "text",
+          "pos": 1,
+          "key": "Location"
+        },
+        "Service": {
+          "type": "text",
+          "pos": 2
+        },
+        "Subtitle": {
+          "type": "text",
+          "pos": 4,
+          "key": "Overtitle"
+        },
+        "Location": {
+          "type": "text",
+          "pos": 5,
+          "key": "Description"
+        },
+        "Image": {
+          "type": "asset",
+          "pos": 6,
+          "key": "Image"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Fold",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    },
+    {
+      "name": "Page",
+      "display_name": null,
+      "created_at": "2023-06-28T13:06:11.744Z",
+      "updated_at": "2023-06-28T13:07:53.625Z",
+      "id": 4190948,
+      "schema": {
+        "body": {
+          "type": "bloks"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Page",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null
+    }
+  ]
+}
