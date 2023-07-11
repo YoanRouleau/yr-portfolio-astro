@@ -19,7 +19,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: NPM install with caching
-        run: npm install
+        run: |
+          npm cache clean --force
+          npm rm -rf node_modules && rm package-lock.json
+          npm install
       - name: Pull Storyblok components
         run: storyblok pull-components --space 23811
       - name: Sync Preprod to Prod
